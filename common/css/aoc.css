@@ -1,0 +1,22 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: black;
+    color: limegreen;
+    font-family: monospace;
+    font-size: 1.6rem;
+    padding: 10px;
+}
+
+h1 {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+}
+
+.answer {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
