@@ -2,6 +2,12 @@ import makeTextFileLineIterator from "../../common/js/file.js";
 
 //global vars
 let totalScore = 0;
+let counter = 0;
+let grpAry = [];
+let prevGrpAry = [];
+let badge;
+let badgeScoreTotal = 0;
+let match;
 
 function generateAlphabet(capital = true) {
 
@@ -20,9 +26,11 @@ let alphaAry = generateAlphabet(); // zero based
 
 function processLine(line){
 
-  console.log(line);
+  // console.log(line);
 
   let strAry = line.split('');
+
+  // console.log(strAry);
   
   // splice in half
   let comp1Ary = strAry.slice(0, (strAry.length/2));
@@ -41,17 +49,52 @@ function processLine(line){
      });
   })
 
-  console.log(duplicateAry);
-
   let packCount = 0;
 
   duplicateAry.forEach(element => {
     //find index
     packCount = packCount + alphaAry.indexOf( element ) + 1;
-    console.log(packCount);
   });
 
   totalScore = totalScore + packCount;
+  
+  if ( counter === 0 ) {
+
+    prevGrpAry = strAry;
+
+    counter = counter + 1;
+  
+  } else if ( counter <= 1 ) {
+
+    grpAry = [];
+
+    strAry.map(( i ) => {
+      match = prevGrpAry.indexOf(( i ));
+      if( match > -1){
+        grpAry.push(prevGrpAry.at( match ));
+      }
+    });
+
+    counter = counter + 1;
+
+  } else if (counter === 2) {
+
+    badge = '';
+
+    strAry.map(( i ) => {
+      match = grpAry.indexOf(( i ));
+      if( match > -1){
+        badge = grpAry.at( match );
+      }
+    });
+
+    console.log(badge);
+    badgeScoreTotal = badgeScoreTotal + alphaAry.indexOf( badge ) + 1;
+
+    // reset
+    counter = 0;
+
+  }
 
 }
 
@@ -62,6 +105,7 @@ async function run() {
   
   // output the answer
   document.getElementById('answer1').innerHTML = totalScore;
+  document.getElementById('answer2').innerHTML = badgeScoreTotal;
 
 }
 
