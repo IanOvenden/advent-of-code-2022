@@ -1,4 +1,5 @@
 import makeTextFileLineIterator from "../../common/js/file.js";
+import { generateAlphabet } from "../common/js/utility.js";
 
 //global vars
 let totalScore = 0;
@@ -8,29 +9,12 @@ let prevGrpAry = [];
 let badge;
 let badgeScoreTotal = 0;
 let match;
-
-function generateAlphabet(capital = true) {
-
-  let lowerAry = [];
-  let upperAry = [];
-  let fullAry = [];
-
-  upperAry = [...Array(26)].map((_, i) => String.fromCharCode(i + 65));
-  lowerAry = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
-  fullAry = lowerAry.concat(upperAry);
-
-  return fullAry;
-}
-
 let alphaAry = generateAlphabet(); // zero based
 
 function processLine(line){
 
-  // console.log(line);
-
+  //PART ONE
   let strAry = line.split('');
-
-  // console.log(strAry);
   
   // splice in half
   let comp1Ary = strAry.slice(0, (strAry.length/2));
@@ -58,9 +42,10 @@ function processLine(line){
 
   totalScore = totalScore + packCount;
   
+  // PART TWO
   if ( counter === 0 ) {
 
-    prevGrpAry = strAry;
+    prevGrpAry = strAry; //set the first comparison array (first string of the group)
 
     counter = counter + 1;
   
@@ -88,7 +73,7 @@ function processLine(line){
       }
     });
 
-    console.log(badge);
+    //console.log(badge);
     badgeScoreTotal = badgeScoreTotal + alphaAry.indexOf( badge ) + 1;
 
     // reset
