@@ -1,5 +1,5 @@
-import makeTextFileLineIterator from "../../common/js/file.js";
-import { generateAlphabet } from "../common/js/utility.js";
+import makeTextFileLineIterator from '../../common/js/file.js';
+import { generateAlphabet } from '../common/js/utility.js';
 
 //global vars
 let rangedRows = 0;
@@ -21,8 +21,10 @@ function countContainedRanges(rowsString) {
     const range2Start = parseInt(range2[0]);
     const range2End = parseInt(range2[1]);
 
-    if ((range1Start <= range2Start && range1End >= range2End) ||
-        (range1Start >= range2Start && range1End <= range2End)) {
+    if (
+      (range1Start <= range2Start && range1End >= range2End) ||
+      (range1Start >= range2Start && range1End <= range2End)
+    ) {
       count++;
     }
   }
@@ -63,4 +65,4 @@ fetch('data.txt')
     document.getElementById('answer1').innerHTML = rangedRows;
     document.getElementById('answer2').innerHTML = overlappedRows;
   })
-.catch(error => console.error(error));
+  .catch(error => console.error(error));
