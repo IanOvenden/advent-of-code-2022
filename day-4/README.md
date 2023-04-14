@@ -1,5 +1,9 @@
 # DAY 4
 
+# ChatGPT
+
+I used this challenge to test out ChatGPT and we pleased with the results. I had a bit of back and forth around the format of the imported text file, but once there the code generated worked very well. Part 2, probably only took about 5 minutes.
+
 ## Puzzle 1
 
 Space needs to be cleared before the last supplies can be unloaded from the ships, and so several Elves have been assigned the job of cleaning up sections of the camp. Every section has a unique ID number, and each Elf is assigned a range of section IDs.
@@ -23,23 +27,23 @@ For the first few pairs, this list means:
 
 This example list uses single-digit section IDs to make it easier to draw; your actual list might contain larger numbers. Visually, these pairs of section assignments look like this:
 
-.234.....  2-4
-.....678.  6-8
+.234..... 2-4
+.....678. 6-8
 
-.23......  2-3
-...45....  4-5
+.23...... 2-3
+...45.... 4-5
 
-....567..  5-7
-......789  7-9
+....567.. 5-7
+......789 7-9
 
-.2345678.  2-8
-..34567..  3-7
+.2345678. 2-8
+..34567.. 3-7
 
-.....6...  6-6
-...456...  4-6
+.....6... 6-6
+...456... 4-6
 
-.23456...  2-6
-...45678.  4-8
+.23456... 2-6
+...45678. 4-8
 
 Some of the pairs have noticed that one of their assignments fully contains the other. For example, 2-8 fully contains 3-7, and 6-6 is fully contained by 4-6. In pairs where one assignment fully contains the other, one Elf in the pair would be exclusively cleaning sections their partner will already be cleaning, so these seem like the most in need of reconsideration. In this example, there are 2 such pairs.
 
@@ -48,6 +52,7 @@ In how many assignment pairs does one range fully contain the other?
 Your puzzle answer was 448.
 
 ## Puzzle 2
+
 It seems like there is still quite a bit of duplicate work planned. Instead, the Elves would like to know the number of pairs that overlap at all.
 
 In the above example, the first two pairs (2-4,6-8 and 2-3,4-5) don't overlap, while the remaining four pairs (5-7,7-9, 2-8,3-7, 6-6,4-6, and 2-6,4-8) do overlap:
@@ -65,7 +70,5 @@ Your puzzle answer was 794.
 
 ## Useful links
 
-- [Import file data with Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#processing_a_text_file_line_by_line) - Processing a text file line by line to import the data.  This is a _common file_
+- [Import file data with Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#processing_a_text_file_line_by_line) - Processing a text file line by line to import the data. This is a _common file_
 - [Array find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-
-
